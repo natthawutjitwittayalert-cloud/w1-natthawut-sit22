@@ -87,7 +87,7 @@ class MyHomePage extends StatelessWidget {
                   SizedBox(height: 15), // ช่องว่าง 15 pixel
                   // Text Widget - แสดงชื่อ-นามสกุล
                   Text(
-                    "Wisarut Yuensuk",
+                    "Natthawut Jitwittayalert",
                     style: TextStyle(
                       color: Colors.white, // สีขาว
                       fontSize: 22, // ขนาดตัวอักษร
@@ -97,7 +97,7 @@ class MyHomePage extends StatelessWidget {
                   SizedBox(height: 5), // ช่องว่าง 5 pixel
                   // Text Widget - แสดงอีเมล
                   Text(
-                    "wisarut.yuensuk@e-tech.ac.th",
+                    "natthawut.jitwittayalert@e-tech.ac.th",
                     style: TextStyle(
                       color: Colors.white, // สีขาว
                       fontSize: 14, // ขนาดตัวอักษร
@@ -140,7 +140,7 @@ class MyHomePage extends StatelessWidget {
                     Colors
                         .green[50]!, // สีพื้นหลังเขียวอ่อน (! = บังคับให้ไม่เป็น null)
                     "แจ้งโทรศัพท์", // หัวข้อ
-                    "081-234-5678", // ข้อมูลเบอร์โทร
+                    "096-138-2372", // ข้อมูลเบอร์โทร
                   ),
                   SizedBox(height: 12), // ช่องว่างระหว่างแต่ละแถว 12 pixel
                   // เรียกใช้ฟังก์ชัน _buildInfoRow เพื่อสร้างแถวข้อมูลวันเกิด
@@ -167,7 +167,7 @@ class MyHomePage extends StatelessWidget {
                     Colors.purple, // สีไอคอนม่วง
                     Colors.purple[50]!, // สีพื้นหลังม่วงอ่อน
                     "การศึกษา", // หัวข้อ
-                    "วิทยาลัยเทคโนโลยีคาดละวินออก (อ.เกาะ)", // ข้อมูลการศึกษา
+                    "วิทยาลัยเทคโนโลยีคาดละวินออก (อี.เทค)", // ข้อมูลการศึกษา
                   ),
                   SizedBox(height: 30), // ช่องว่างก่อนปุ่ม 30 pixel
                   // ===== ปุ่มนำทางไปหน้า 2 =====
@@ -297,42 +297,52 @@ class MyHomePage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
+  // 🔨 Constructor (ตัวสร้าง) สำหรับคลาส SecondPage
   const SecondPage({super.key});
 
   @override
+  // 🏗️ เมธอด build: ใช้สร้างโครงสร้าง UI ของ Widget นี้
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      // 🛡️ SafeArea: ป้องกันเนื้อหาไม่ให้ชนกับ Status Bar หรือ Notch ของอุปกรณ์
       body: SafeArea(
         child: Column(
+          // 📦 Column: จัดเรียง Widget ลูกตามแนวตั้ง (Profile, Video Grid)
           children: [
-            // Profile Section
+            // #################### ส่วน Profile Section ####################
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                // ➡️ crossAxisAlignment: จัดตำแหน่ง Widget ลูกให้อยู่ทางด้านซ้าย (start)
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Profile Picture with Follow Badge
+                  // 🖼️ Profile Picture and Stats Row
                   Row(
                     children: [
+                      // 疊 Stack: ใช้วางซ้อน Profile Picture และ Follow Badge
                       Stack(
                         children: [
+                          // 👤 CircleAvatar: แสดงรูปโปรไฟล์แบบวงกลม
                           CircleAvatar(
                             radius: 45,
                             backgroundImage: NetworkImage(
                               'http://e-sis.e-tech.ac.th/etech/Moduls/studentPhotos/photo/2567/6721610167640.jpg',
                             ),
                           ),
+                          // 📌 Positioned: ใช้กำหนดตำแหน่งของ Follow Badge บนรูปโปรไฟล์
                           Positioned(
                             right: 0,
                             top: 0,
                             child: Container(
+                              // 📛 Container: กล่องสำหรับ Follow Badge
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 6,
                                 vertical: 2,
                               ),
                               decoration: BoxDecoration(
                                 color: Colors.red,
+                                // 📐 กำหนดขอบโค้งมน
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: const Text(
@@ -348,10 +358,12 @@ class SecondPage extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(width: 20),
-                      // Stats Row
+                      // 📊 Stats Row: แถวที่แสดงสถิติต่างๆ (กำลังติดตาม, ผู้ติดตาม, ถูกใจ)
                       Expanded(
                         child: Row(
+                          // ↔️ mainAxisAlignment: จัดตำแหน่งให้สถิติมีระยะห่างเท่าๆ กัน
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          // 🎯 _buildStatColumn: เรียกใช้เมธอดสำหรับสร้างคอลัมน์สถิติแต่ละอัน
                           children: [
                             _buildStatColumn('5', 'กำลังติดตาม'),
                             _buildStatColumn('828.1 K', 'ผู้ติดตาม'),
@@ -363,17 +375,18 @@ class SecondPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
 
-                  // Username
+                  // 🏷️ Username and Verified Badge
                   Row(
                     children: [
                       const Text(
-                        'Wisarut_Yuensuk',
+                        'Natthawut Jitwittayalert',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(width: 4),
+                      // ✅ Icon: แสดงสัญลักษณ์ Verified (เครื่องหมายถูกสีฟ้า)
                       Icon(
                         Icons.verified,
                         color: Colors.blue,
@@ -383,9 +396,9 @@ class SecondPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
 
-                  // TikTok ID
+                  // 🆔 TikTok ID
                   const Text(
-                    '♪ wisarut126 ♪',
+                    '♪ Natthawut Jitwittayalert ♪',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.grey,
@@ -393,14 +406,17 @@ class SecondPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // Follow Button and Share
+                  // 🟡 Follow Button and Share Button
                   Row(
                     children: [
+                      // ➡️ Expanded: ทำให้ปุ่ม 'ติดตาม' ขยายเต็มพื้นที่ที่เหลือในแนวนอน
                       Expanded(
                         child: ElevatedButton(
+                          // 🖱️ onPressed: ฟังก์ชันที่จะทำงานเมื่อมีการกดปุ่ม (ตอนนี้ยังว่าง)
                           onPressed: () {},
+                          // 🎨 styleFrom: กำหนดสไตล์ของปุ่ม (สีพื้นหลัง, ตัวอักษร, รูปร่าง)
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFFEE500),
+                            backgroundColor: Color(0xFFFEE500), // สีเหลือง
                             foregroundColor: Colors.black,
                             elevation: 0,
                             padding: const EdgeInsets.symmetric(vertical: 12),
@@ -418,12 +434,14 @@ class SecondPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 4),
+                      // 📤 Share Button
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12,
                         ),
                         decoration: BoxDecoration(
+                          // 🔳 Border: กำหนดขอบสี่เหลี่ยมสีเทาอ่อน
                           border: Border.all(color: Colors.grey.shade300),
                           borderRadius: BorderRadius.circular(2),
                         ),
@@ -438,15 +456,21 @@ class SecondPage extends StatelessWidget {
               ),
             ),
 
-            // Video Grid
+            // #################### ส่วน Video Grid ####################
+            // ⬇️ Expanded: ทำให้ GridView ใช้พื้นที่แนวตั้งที่เหลือทั้งหมด
             Expanded(
+              // 🖼️ GridView.count: แสดงรายการในรูปแบบตาราง (Grid) ที่มีจำนวนคอลัมน์คงที่
               child: GridView.count(
                 padding: EdgeInsets.zero,
+                // 🔢 crossAxisCount: กำหนดจำนวนคอลัมน์เป็น 2
                 crossAxisCount: 2,
+                // 📏 mainAxisSpacing/crossAxisSpacing: กำหนดระยะห่างระหว่างรายการในแนวตั้ง/แนวนอน
                 mainAxisSpacing: 4,
                 crossAxisSpacing: 4,
+                // 📐 childAspectRatio: กำหนดอัตราส่วนความกว้างต่อความสูงของแต่ละช่อง (เพื่อให้วิดีโอเป็นแนวตั้ง)
                 childAspectRatio: 0.65,
                 children: [
+                  // 🎥 _buildVideoThumbnail: เรียกใช้เมธอดสำหรับสร้าง Thumbnail วิดีโอแต่ละรายการ
                   _buildVideoThumbnail(
                     'http://e-sis.e-tech.ac.th/etech/Moduls/studentPhotos/photo/2567/6721610167640.jpg',
                     '1.2M',
@@ -455,6 +479,7 @@ class SecondPage extends StatelessWidget {
                     'http://e-sis.e-tech.ac.th/etech/Moduls/studentPhotos/photo/2567/6721610167640.jpg',
                     '856K',
                   ),
+                  // ... สามารถเพิ่ม Video Thumbnail อื่นๆ ได้ที่นี่
                 ],
               ),
             ),
@@ -464,9 +489,11 @@ class SecondPage extends StatelessWidget {
     );
   }
 
+  // 🎯 เมธอด _buildStatColumn: สร้าง Widget คอลัมน์สำหรับแสดงสถิติ (ตัวเลขและป้ายกำกับ)
   Widget _buildStatColumn(String count, String label) {
     return Column(
       children: [
+        // 🔢 Text: แสดงตัวเลขสถิติ (เช่น '5', '828.1 K')
         Text(
           count,
           style: const TextStyle(
@@ -475,6 +502,7 @@ class SecondPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 2),
+        // 📝 Text: แสดงคำอธิบายสถิติ (เช่น 'กำลังติดตาม', 'ผู้ติดตาม')
         Text(
           label,
           style: TextStyle(
@@ -486,25 +514,28 @@ class SecondPage extends StatelessWidget {
     );
   }
 
+  // 🎥 เมธอด _buildVideoThumbnail: สร้าง Widget Thumbnail วิดีโอพร้อมจำนวนวิว
   Widget _buildVideoThumbnail(String imageUrl, String views) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade200,
         borderRadius: BorderRadius.circular(4),
       ),
+      // 疊 Stack: ซ้อนภาพวิดีโอ, Gradient Overlay และจำนวนวิวไว้ด้วยกัน
       child: Stack(
         fit: StackFit.expand,
         children: [
-          // รูปภาพ
+          // 🖼️ ClipRRect: ตัดขอบภาพให้โค้งมนตาม Container
           ClipRRect(
             borderRadius: BorderRadius.circular(4),
+            // 🌐 Image.network: โหลดและแสดงรูปภาพจาก URL
             child: Image.network(
               imageUrl,
-              fit: BoxFit.cover,
+              fit: BoxFit.cover, // ทำให้ภาพครอบคลุมพื้นที่ทั้งหมดของ Widget
             ),
           ),
 
-          // Gradient overlay ด้านล่าง
+          // 🌑 Gradient overlay ด้านล่าง: ทำให้ข้อความด้านล่างอ่านง่ายขึ้น
           Positioned(
             bottom: 0,
             left: 0,
@@ -512,6 +543,7 @@ class SecondPage extends StatelessWidget {
             child: Container(
               height: 60,
               decoration: BoxDecoration(
+                // 🎨 LinearGradient: สร้างการไล่ระดับสีจากดำทึบไปสู่โปร่งใส
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
@@ -524,18 +556,20 @@ class SecondPage extends StatelessWidget {
             ),
           ),
 
-          // จำนวนวิว
+          // 👁️ จำนวนวิว
           Positioned(
             bottom: 8,
             left: 8,
             child: Row(
               children: [
+                // ▶️ Icon: สัญลักษณ์รูป Play
                 Icon(
                   Icons.play_arrow,
                   color: Colors.white,
                   size: 16,
                 ),
                 const SizedBox(width: 4),
+                // 🔢 Text: แสดงจำนวนวิว
                 Text(
                   views,
                   style: TextStyle(
