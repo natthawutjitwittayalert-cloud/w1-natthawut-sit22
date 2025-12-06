@@ -232,18 +232,6 @@ class MyHomePage extends StatelessWidget {
         // BoxDecoration - ใช้ตกแต่งกล่อง (สี, มุมโค้ง, เงา)
         color: Colors.white, // สีพื้นหลังขาว
         borderRadius: BorderRadius.circular(8), // มุมโค้งมน 8 pixel
-        boxShadow: [
-          // boxShadow - สร้างเงาให้กับกล่อง (แบบ 3D)
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1), // สีเงาเทาโปร่งแสง 10% (0.1)
-            spreadRadius: 1, // การกระจายของเงา 1 pixel
-            blurRadius: 3, // ความเบลอของเงา 3 pixel
-            offset: Offset(
-              0,
-              1,
-            ), // ตำแหน่งเงา (แกน x=0, แกน y=1) เงาอยู่ด้านล่าง
-          ),
-        ],
       ),
       child: Row(
         // Row - จัดเรียง widget ภายในแนวนอน
@@ -387,11 +375,7 @@ class SecondPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       // ✅ Icon: แสดงสัญลักษณ์ Verified (เครื่องหมายถูกสีฟ้า)
-                      Icon(
-                        Icons.verified,
-                        color: Colors.blue,
-                        size: 18,
-                      ),
+                      Icon(Icons.verified, color: Colors.blue, size: 18),
                     ],
                   ),
                   const SizedBox(height: 2),
@@ -399,10 +383,7 @@ class SecondPage extends StatelessWidget {
                   // 🆔 TikTok ID
                   const Text(
                     '♪ Natthawut Jitwittayalert ♪',
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.grey,
-                    ),
+                    style: TextStyle(fontSize: 13, color: Colors.grey),
                   ),
                   const SizedBox(height: 16),
 
@@ -445,10 +426,7 @@ class SecondPage extends StatelessWidget {
                           border: Border.all(color: Colors.grey.shade300),
                           borderRadius: BorderRadius.circular(2),
                         ),
-                        child: Icon(
-                          Icons.share_outlined,
-                          size: 18,
-                        ),
+                        child: Icon(Icons.share_outlined, size: 18),
                       ),
                     ],
                   ),
@@ -496,19 +474,13 @@ class SecondPage extends StatelessWidget {
         // 🔢 Text: แสดงตัวเลขสถิติ (เช่น '5', '828.1 K')
         Text(
           count,
-          style: const TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 2),
         // 📝 Text: แสดงคำอธิบายสถิติ (เช่น 'กำลังติดตาม', 'ผู้ติดตาม')
         Text(
           label,
-          style: TextStyle(
-            fontSize: 11,
-            color: Colors.grey.shade600,
-          ),
+          style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
         ),
       ],
     );
@@ -547,10 +519,7 @@ class SecondPage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
-                  colors: [
-                    Colors.black.withOpacity(0.7),
-                    Colors.transparent,
-                  ],
+                  colors: [Colors.black.withOpacity(0.7), Colors.transparent],
                 ),
               ),
             ),
@@ -563,11 +532,7 @@ class SecondPage extends StatelessWidget {
             child: Row(
               children: [
                 // ▶️ Icon: สัญลักษณ์รูป Play
-                Icon(
-                  Icons.play_arrow,
-                  color: Colors.white,
-                  size: 16,
-                ),
+                Icon(Icons.play_arrow, color: Colors.white, size: 16),
                 const SizedBox(width: 4),
                 // 🔢 Text: แสดงจำนวนวิว
                 Text(
